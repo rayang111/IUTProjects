@@ -1,0 +1,12 @@
+	LES REGLES DU SAME GAME
+
+Le but est de détruire les groupes de blocs de la même couleur
+dans la grille que vous voyez dans la fenetre du jeu au cours
+d'une partie.
+Pour détruire un bloc pointez votre souris sur un bloc, si ce
+dernier est accentué avec d'autres blocs de la même couleur
+alors vous pouvez détruire ce groupe de blocs. Cliquez sur ce
+groupe sélectionné pour le détruire.
+Pour gagner, il faut qu'il ait plus aucun groupe dans la grille.
+
+Bon jeu !

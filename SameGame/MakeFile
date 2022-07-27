@@ -1,0 +1,81 @@
+### VARIABLES ###
+
+JC = javac
+JCFLAGS = -encoding UTF-8 -implicit:none
+
+JVM = java
+JVMFLAGS = 
+
+### REGLES ESSENTIELLES ###
+
+
+SameGame.class : SameGame.java MenuPrincipal.class MenuPrincipalModel.class MenuPrincipalObs.class
+	${JC} ${JCFLAGS} SameGame.java
+
+MenuPrincipal.class : MenuPrincipal.java Options.class Chargement.class Jeu.class MenuPrincipalModel.class 
+	${JC} ${JCFLAGS} MenuPrincipal.java
+
+MenuPrincipalObs.class : MenuPrincipalObs.java  MenuPrincipalModel.class
+	${JC} ${JCFLAGS} MenuPrincipalObs.java
+
+MenuPrincipalModel.class : MenuPrincipalModel.java 
+	${JC} ${JCFLAGS} MenuPrincipalModel.java
+
+Options.class : Options.java OptionsModel.class
+	${JC} ${JCFLAGS} Options.java
+
+OptionsObs.class : OptionsObs.java Options.class OptionsModel.class 
+	${JC} ${JCFLAGS} OptionsObs.java
+
+OptionsModel.class : OptionsModel.java  
+	${JC} ${JCFLAGS} OptionsModel.java
+
+Affichage.class : Affichage.java Jeu.class OptionsModel.class OptionsObs.class Observateur.class
+	${JC} ${JCFLAGS} Affichage.java
+
+Jeu.class : Jeu.java OptionsObs.class OptionsModel.class JeuObs.class 
+	${JC} ${JCFLAGS} Jeu.java
+
+JeuObs.class : JeuObs.java 
+	${JC} ${JCFLAGS} JeuObs.java
+
+Chargement.class : Chargement.java Jeu.class OptionsObs.class OptionsModel.class Affichage.class 
+	${JC} ${JCFLAGS} Chargement.java
+
+Fin.class : Fin.java FinModel.class
+	${JC} ${JCFLAGS} Fin.java
+
+FinModel.class : FinModel.java  
+	${JC} ${JCFLAGS} FinModel.java
+
+FinObs.class : FinObs.java Fin.class FinModel.class
+	${JC} ${JCFLAGS} FinObs.java
+
+Observateur.class : Observateur.java RegleObs.class FinObs.class Chargement.java 
+	${JC} ${JCFLAGS} Observateur.java
+
+Regles.class : Regles.java ReglesModel.class 
+	${JC} ${JCFLAGS} Regles.java
+
+ReglesModel.class : ReglesModel.java
+	${JC} ${JCFLAGS} ReglesModel.java
+
+RegleObs.class : ReglesObs.java Regles.class 
+	${JC} ${JCFLAGS} ReglesObs.java
+
+### REGLES OPTIONNELLES ###
+
+run : SameGame.class
+	${JVM} ${JVMFLAGS} SameGame
+
+
+clean :
+	-rm -f *.class
+
+mrproper : clean SameGame.class
+
+### BUTS FACTICES ###
+
+.PHONY : run clean mrproper
+
+### FIN ###
