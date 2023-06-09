@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/ADE">
+        <file>clci.wav</file>
+    </qresource>
+</RCC>
