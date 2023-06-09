@@ -1,0 +1,1 @@
+watch -n 1 ps -o cmd -C A,B1,C1,C2 --forest   dans un autre terminal
