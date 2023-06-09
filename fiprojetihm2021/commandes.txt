@@ -1,0 +1,5 @@
+java -cp ".:./fr/iutfbleau/projetIHM2021FI2/API/mariadb-client.jar" fr.iutf
+bleau.projetIHM2021FI2.API.Booking
+
+javac -d build -classpath build -sourcepath "src:tmp" -cp ".:mariadb-client.jar
+" ./src/fr/iutfbleau/projetIHM2021FI2/API/*.java
